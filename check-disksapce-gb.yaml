@@ -2,7 +2,12 @@
 - hosts: all
 
   tasks:
-    - name: Get disk usage
+    - name: Get disk space
+      command: df -h
+      register: disk_usage
+  
+  tasks:
+    - name: Check disk space available
       command: df -h / | awk 'NR==2 {print $5}'
       register: disk_usage
 
