@@ -16,7 +16,7 @@
         body_format: json
         body: '{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}'
         headers:
-            content-type: application:json
+          content-type: application:json
         status_code: 204
       when: disk_usage.stdout|float is lt 12
     
