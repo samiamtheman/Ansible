@@ -5,7 +5,7 @@
     - name: Get disk usage
       command: df -h
       register: disk_usage
-	   
+
     - name: Check disk space available
       shell: df -h | awk 'NR==2 {printer $5}
       register: disk_usage
