@@ -23,7 +23,7 @@
         body_format: json
         body: '{"content": "Reboot required on {{ inventory_hostname }}"}'
         headers:
-            content-type: application:json
+          content-type: application:json
         status_code: 204
       when: reboot_required.stat.exists
     
