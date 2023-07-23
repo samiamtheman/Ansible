@@ -14,9 +14,9 @@
         url: "https://discord.com/api/webhooks/1132694976799715358/4_T5d6jTu1WzRwM-AtzXRD5CgsjBGpKThpUnuazJ0E1ffcVNSV3lqygcXwAqE74VZa-n"
         method: POST
         body_format: json
-        body: '{"content": "{{ inventory_hostname }} has less then 12gb free!"}'
+        body: '{"content": "{{ inventory_hostname }} has less then 10gb free!"}'
         headers:
           content-type: application/json
         status_code: 204
-      when: disk_usage.stdout|float is lt 12
+      when: disk_usage.stdout|float is lt 10
     
