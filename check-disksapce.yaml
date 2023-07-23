@@ -6,9 +6,9 @@
       command: df -h /dev/mapper/ubuntu--vg-ubuntu--lv 
       register: disk_usage
 
-   # - name: Check disk space available
-     # shell: df -h / | awk 'NR==2 {printer $5}'
-    # register: disk_usage
+    - name: Check disk space available
+      shell: df -h /dev/mapper/ubuntu--vg-ubuntu--lv / | awk 'NR==2 {printer $5}'
+      register: disk_usage
      
     # Send Discord Message
     - name: Send Discord Message
