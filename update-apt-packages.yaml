@@ -2,7 +2,6 @@
 - hosts: all
 
   become: true
-  become_method: su
   tasks:
     - name: update apt packages
       apt:
