@@ -2,13 +2,8 @@
 - hosts: all
 
   tasks:
-    - name: Get disk space
-      command: df -h
-      register: disk_usage
-  
-  tasks:
-    - name: Check disk space available
-      command: df -h / | awk 'NR==2 {print $5}'
+    - name: Get disk usage
+      command: df -h / --output\=avail 
       register: disk_usage
 
    
@@ -19,9 +14,9 @@
         url: "https://discord.com/api/webhooks/1132694976799715358/4_T5d6jTu1WzRwM-AtzXRD5CgsjBGpKThpUnuazJ0E1ffcVNSV3lqygcXwAqE74VZa-n"
         method: POST
         body_format: json
-        body: '{"content": "Disk space on {{ inventory_hostname }} is above 70%!"}'
+        body: '{"content": "{{ inventory_hostname }} has less then 12gb free!"}'
         headers:
-          content-type: application/json
+          content-type: application:json
         status_code: 204
-      when: disk_usage.stdout[:-1]|int >70
+      when: disk_usage.stdout|float is lt 12
     
