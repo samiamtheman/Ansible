@@ -16,7 +16,7 @@
       register: reboot_required
     
     # Send Discord Message
-    -name: Send Discord Message
+    - name: Send Discord Message
      uri:
         url: "https://discord.com/api/webhooks/1132694976799715358/4_T5d6jTu1WzRwM-AtzXRD5CgsjBGpKThpUnuazJ0E1ffcVNSV3lqygcXwAqE74VZa-n"
         method: POST
